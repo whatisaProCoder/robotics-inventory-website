@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Geist";
+  src: url("./Geist.ttf") format("truetype");
+}
+
+* {
+  font-family: "Geist";
+}
