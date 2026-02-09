@@ -10,6 +10,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #F5F5F5;
 }
 
 a {
@@ -38,7 +39,7 @@ a {
   font-size: 1.5rem;
 }
 
-.header>.nav>a {
+.header>.nav {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -52,6 +53,8 @@ a {
   align-items: center;
   gap: 0.5rem;
   border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-color: #F5F5F5;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   font-size: 1.15rem;
@@ -60,5 +63,5 @@ a {
 
 .header>.nav>a>.active-nav-item {
   background-color: #EBEBEB;
-  border-bottom: 3px solid #000000;
+  border-bottom-color: #000000;
 }

@@ -9,6 +9,7 @@ const express = require("express")
 
 const homeRouter = require("./routes/homeRouter")
 const categoriesRouter = require("./routes/categoriesRouter")
+const componentsRouter = require("./routes/componentsRouter")
 
 
 // express setup
@@ -30,7 +31,9 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use("/", homeRouter)
 
-app.use("/categories", homeRouter)
+app.use("/categories", categoriesRouter)
+
+app.use("/components", componentsRouter)
 
 
 // error handling
