@@ -6,3 +6,59 @@
 * {
   font-family: "Geist";
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #000000;
+  padding: 0.5rem 0.75rem;
+}
+
+.header>.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header>.brand>.name {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.header>.nav>a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.header>.nav>a>.nav-item {
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom-width: 3px;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 550;
+}
+
+.header>.nav>a>.active-nav-item {
+  background-color: #EBEBEB;
+  border-bottom: 3px solid #000000;
+}
