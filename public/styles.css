@@ -65,3 +65,27 @@ a {
   background-color: #EBEBEB;
   border-bottom-color: #000000;
 }
+
+@media screen and (max-width:768px) {
+  .header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .header>.nav>a>.nav-item>.name {
+    display: none;
+  }
+
+  .header>.nav>a>.active-nav-item>.name {
+    display: block !important;
+  }
+}
