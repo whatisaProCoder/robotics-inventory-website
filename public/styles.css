@@ -216,6 +216,12 @@ a {
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
+  transition: all ease-in 0.1s;
+}
+
+.usefulness-section>.cards-grid>.card:hover {
+  box-shadow: 6px 6px 0px #303030;
+  transform: translateY(-2px);
 }
 
 .usefulness-section>.cards-grid>.card>.title {
@@ -252,6 +258,12 @@ a {
   align-items: flex-start;
   gap: 0.5rem;
   padding: 1rem;
+  transition: all ease-in-out 0.1s;
+}
+
+.technical-section>.cards-grid>.card:hover {
+  box-shadow: 6px 6px 0px #303030;
+  transform: translateY(-2px);
 }
 
 .technical-section>.cards-grid>.card>.title {
