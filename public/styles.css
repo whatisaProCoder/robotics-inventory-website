@@ -25,6 +25,9 @@ a {
   align-items: center;
   border-bottom: 3px solid #000000;
   padding: 0.5rem 0.75rem;
+  position: sticky;
+  top: 0;
+  background-color: #F5F5F5;
 }
 
 .header>.brand {
@@ -133,6 +136,7 @@ a {
 .hero>.graphic {
   border: 3.5px solid #000000;
   padding: 1.5rem;
+  background-color: #F5F5F5;
 }
 
 .explore-button {
@@ -167,6 +171,7 @@ a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: #F5F5F5;
   }
 
   .hero>.info>.graphic>img {
