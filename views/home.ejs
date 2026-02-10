@@ -10,6 +10,78 @@
 
 <body>
   <%- include("./partials/header", {active:"home"}) %>
+    <div class="content-container hero-container">
+      <div class="hero">
+        <div class="info">
+          <div class="title">Robotics Inventory</div>
+          <div class="graphic">
+            <img src="/hero-graphic.svg" alt="Hero Graphic">
+          </div>
+          <div class="subtext">Your one-stop electronics tracking application.</div>
+          <a class="explore-button" href="/categories">
+            Explore
+          </a>
+        </div>
+        <div class="graphic">
+          <img src="/hero-graphic.svg" alt="Hero Graphic">
+        </div>
+      </div>
+    </div>
+    <div class="content-container">
+      <div class="usefulness-section">
+        <div class="section-title">How to use it?</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="title">Browse Categories</div>
+            <div class="subtext">View all robotics component categories and explore items grouped by type.</div>
+          </div>
+          <div class="card">
+            <div class="title">Add or Edit Components</div>
+            <div class="subtext">Create new components or update existing ones to practice open CRUD operations.</div>
+          </div>
+          <div class="card">
+            <div class="title">Search & Filter</div>
+            <div class="subtext">Quickly find components using name-based search and category filtering.</div>
+          </div>
+          <div class="card">
+            <div class="title">Data Protection</div>
+            <div class="subtext">Deletion is intentionally restricted to protect shared data in an open system.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="technical-section">
+        <div class="section-title">Technical Overview</div>
+        <div class="cards-grid">
+          <div class="card">
+            <div class="title">Architecture</div>
+            <ul>
+              <li>Server-rendered web application using Express and EJS</li>
+              <li>RESTful routing for categories and components</li>
+              <li>PostgreSQL relational database for structured data</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="title">Backend Concepts</div>
+            <ul>
+              <li>CRUD operations for related categories and components</li>
+              <li>Validation and error handling for incoming user data</li>
+              <li>Query-based search and filtering via request parameters</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="footer">
+        <div class="black-line"></div>
+        <div class="text">© 2026 whatisaProCoder. All rights reserved.</div>
+        <div class="black-line"></div>
+      </div>
+    </div>
 </body>
 
 </html>
