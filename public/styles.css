@@ -5,6 +5,7 @@
 
 * {
   font-family: "Geist";
+  box-sizing: border-box;
 }
 
 body {
@@ -240,7 +241,7 @@ a {
   flex-direction: column;
   width: 1200px;
   padding: 1.5rem;
-  padding-top: 2.25rem;
+  padding-top: 1rem;
 }
 
 .technical-section>.cards-grid {
@@ -287,8 +288,9 @@ ul {
   flex-direction: row;
   align-items: center;
   width: 1200px;
-  margin: 1rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
+  padding: 0rem 1.5rem;
 }
 
 .footer>.black-line {
@@ -303,13 +305,10 @@ ul {
   padding: 0.25rem 0.5rem;
   font-size: 1rem;
   font-weight: 500;
+  text-align: center;
 }
 
 @media screen and (max-width:600px) {
-  .technical-section>.cards-grid>.card {
-    align-items: center;
-  }
-
   .footer {
     width: 100%;
   }
