@@ -281,7 +281,7 @@ li {
 }
 
 ul {
-  list-style-type: circle;
+  list-style-type: square;
 }
 
 .footer {
@@ -521,10 +521,6 @@ button {
   background-color: #ffd3d3;
   padding: 0.75rem;
   border: 2px solid #ffb4b4;
-}
-
-.errors-container>ul>li {
-  list-style-type: square;
 }
 
 .errors-container>.title {
