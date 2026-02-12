@@ -15,18 +15,21 @@
         <div class="title">
           Add New Category
         </div>
-        <form action="/new" method="POST" class="category-form">
-          <div class="field-container">
-            <input type=" text" name="categoryName" placeholder="Name">
-          </div>
-          <div class="button-group">
-            <button type="reset" class="reset-button">Reset</button>
-            <button type="submit" class="submit-button">Submit</button>
-          </div>
-        </form>
-        <div class="go-back-button-container">
-          <%- include("./partials/buttons/go-back", {link:"/categories"}) %>
-        </div>
+        <% if (locals.errors) {%>
+          <%- include("./partials/errors", {errors:errors}) %>
+            <% } %>
+              <form action="/categories/new" method="POST" class="category-form">
+                <div class="field-container">
+                  <input type=" text" name="categoryName" placeholder="Name">
+                </div>
+                <div class="button-group">
+                  <button type="reset" class="reset-button">Reset</button>
+                  <button type="submit" class="submit-button">Submit</button>
+                </div>
+              </form>
+              <div class="go-back-button-container">
+                <%- include("./partials/buttons/go-back", {link:"/categories"}) %>
+              </div>
       </div>
     </div>
 </body>

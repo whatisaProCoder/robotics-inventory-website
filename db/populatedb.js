@@ -5,25 +5,32 @@ const { Client } = require("pg")
 const SQL = `
 CREATE TABLE IF NOT EXISTS categories (
    id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-   category VARCHAR(100) NOT NULL UNIQUE
+   category VARCHAR(50) NOT NULL UNIQUE
 );
 
 INSERT INTO categories (category) VALUES
-('Control & Processing'),
+('Microcontrollers'),
+('Single Board Computers'),
+('Embedded Modules'),
 ('Sensors'),
 ('Actuators'),
-('Power & Energy'),
-('Motor Drivers & Controllers'),
+('Motor Drivers'),
+('Power Modules'),
+('Batteries'),
+('Battery Management'),
 ('Communication Modules'),
-('Vision & Imaging'),
-('Displays & User Interfaces'),
-('Prototyping & PCB'),
+('Vision Systems'),
+('Displays'),
+('Human Interfaces'),
+('Prototyping'),
+('PCBs'),
 ('Wiring & Connectors'),
-('Mechanical Components'),
-('Chassis & Structural Parts'),
-('Tools & Equipment'),
-('Cooling & Thermal Management')
-`;
+('Passive Components'),
+('Mechanical Parts'),
+('Chassis'),
+('Tools & Testing'),
+('Cooling');
+`
 
 
 async function main() {

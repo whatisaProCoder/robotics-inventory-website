@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Category</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <%- include("./partials/header", {active:"categories"}) %>
+    <div class="content-container">
+      <div class="form-container">
+        <div class="title">
+          Edit Category
+        </div>
+        <% if (locals.errors) {%>
+          <%- include("./partials/errors", {errors:errors}) %>
+            <% } %>
+              <form action="/categories/<%= categoryID %>/edit" method="POST" class="category-form">
+                <div class="field-container">
+                  <input type=" text" name="categoryName" placeholder="Name" value="<%= categoryName %>">
+                </div>
+                <div class="button-group">
+                  <button type="reset" class="reset-button">Reset</button>
+                  <button type="submit" class="submit-button">Submit</button>
+                </div>
+              </form>
+              <form action="/categories/<%= categoryID %>/delete" method="POST" class="deletion-form-section">
+                <% if (locals.deletionErrors) {%>
+                  <%- include("./partials/errors", {errors:deletionErrors}) %>
+                    <% } %>
+                      <div class="button-group">
+                        <div class="field-container">
+                          <input type="password" name="passcode" placeholder="Deletion Passcode" style="flex: 1;">
+                        </div>
+                        <button type="submit" class="icon-button">
+                          <img src="/delete-icon-white.svg" alt="Delete">
+                        </button>
+                      </div>
+              </form>
+              <div class="go-back-button-container">
+                <%- include("./partials/buttons/go-back", {link:"/categories"}) %>
+              </div>
+      </div>
+    </div>
+</body>
+
+</html>

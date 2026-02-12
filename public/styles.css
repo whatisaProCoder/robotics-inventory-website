@@ -431,7 +431,7 @@ ul {
   align-items: center;
   border: 3px solid #000000;
   box-shadow: 5px 5px 0px #303030;
-  width: 400px;
+  width: 450px;
   padding: 2rem;
 }
 
@@ -477,7 +477,7 @@ input {
 }
 
 button {
-  all: unset
+  all: unset;
 }
 
 .form-container>form>.button-group {
@@ -509,4 +509,43 @@ button {
 
 .go-back-button-container {
   margin-top: 3rem;
+}
+
+.errors-container {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: #ffd3d3;
+  padding: 0.75rem;
+  border: 2px solid #ffb4b4;
+}
+
+.errors-container>ul>li {
+  list-style-type: square;
+}
+
+.errors-container>.title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.deletion-form-section {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: #ebebeb;
+  padding: 0.5rem;
+  border: 2px solid #dcdcdc;
+}
+
+.deletion-form-section>.button-group {
+  margin-top: 0 !important;
+}
+
+.deletion-form-section>.button-group>.field-container:focus-within {
+  background-color: #ffb4b4;
+}
+
+.deletion-form-section .errors-container {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
