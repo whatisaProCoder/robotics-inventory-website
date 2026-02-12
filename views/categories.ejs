@@ -10,6 +10,28 @@
 
 <body>
   <%- include("./partials/header", {active:"categories"}) %>
+    <div class="content-container">
+      <div class="categories-section">
+        <div class="top-row">
+          <div class="section-title">Categories</div>
+          <%- include("./partials/buttons/add-item", {link : "/categories/new" }) %>
+        </div>
+
+        <% if(locals.categories) { %>
+          <% if(categories.length===0) { %>
+            <div class="empty-alert">No categories available yet. Add a new category!</div>
+            <% } else { %>
+              <div class="cards-flex-wrap-container">
+                <% categories.forEach((categoryObject)=> { %>
+                  <%- include("./partials/category-card", {categoryObject: categoryObject}) %>
+                    <% }) %>
+              </div>
+              <%- include("./partials/thats-all-for-now") %>
+                <% } %>
+                  <% } %>
+      </div>
+
+    </div>
 </body>
 
 </html>

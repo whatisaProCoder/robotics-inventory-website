@@ -1,7 +1,14 @@
+// importing pool
+
+const db = require("../db/queries")
+
+
 // controller functions
 
-const categoriesPageGet = (req, res) => {
-  res.render("categories")
+const categoriesPageGet = async (req, res) => {
+  const categories = await db.getAllCategories()
+
+  res.render("categories", { categories: categories })
 }
 
 

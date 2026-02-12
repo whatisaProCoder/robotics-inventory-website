@@ -1,6 +1,6 @@
 // library imports
 
-const dotenv = require("dotenv")
+require("dotenv").config()
 const path = require("path")
 const express = require("express")
 
@@ -13,8 +13,6 @@ const componentsRouter = require("./routes/componentsRouter")
 
 
 // express setup
-
-dotenv.config()
 
 const app = express()
 
