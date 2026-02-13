@@ -28,7 +28,21 @@
           </div>
         </div>
 
-
+        <% if(locals.componentsCategoryWise) { %>
+          <% if(componentsCategoryWise.length===0) { %>
+            <div class="empty-alert">No components available yet. Add a new category!</div>
+            <% } else { %>
+              <div class="cards-flex-wrap-container">
+                <% componentsCategoryWise.forEach((componentsPerCategory)=> { %>
+                  <%= componentsPerCategory.category %>
+                    <% componentsPerCategory.components.forEach(component=> { %>
+                      <%= component.name %>
+                        <% }) %>
+                          <% }) %>
+              </div>
+              <%- include("./partials/thats-all-for-now") %>
+                <% } %>
+                  <% } %>
       </div>
     </div>
 </body>
