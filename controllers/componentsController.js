@@ -8,7 +8,5 @@ const db = require("../db/queries")
 exports.componentsCatalogPageGet = async (req, res) => {
   const componentsCategoryWise = await db.getAllComponents()
 
-  console.log(componentsCategoryWise)
-
-  res.render("components-catalog")
+  res.render("components-catalog", { componentsCategoryWise: componentsCategoryWise })
 }
