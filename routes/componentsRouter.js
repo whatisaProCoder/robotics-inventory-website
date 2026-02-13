@@ -17,6 +17,8 @@ const componentsRouter = Router()
 
 componentsRouter.get("/", componentsController.componentsCatalogPageGet)
 
+componentsRouter.get("/:id", componentsController.componentPageGet)
+
 
 // default exporting the router
 

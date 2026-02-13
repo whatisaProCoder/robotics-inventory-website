@@ -10,3 +10,7 @@ exports.componentsCatalogPageGet = async (req, res) => {
 
   res.render("components-catalog", { componentsCategoryWise: componentsCategoryWise })
 }
+
+exports.componentPageGet = async (req, res) => {
+  res.render("component")
+}
