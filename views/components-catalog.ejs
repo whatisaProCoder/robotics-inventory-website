@@ -32,17 +32,22 @@
           <% if(componentsCategoryWise.length===0) { %>
             <div class="empty-alert">No components available yet. Add a new category!</div>
             <% } else { %>
-              <div class="cards-flex-wrap-container">
-                <% componentsCategoryWise.forEach((componentsPerCategory)=> { %>
-                  <%= componentsPerCategory.category %>
+
+              <% componentsCategoryWise.forEach((componentsPerCategory)=> { %>
+                <div class="category-container">
+                  <div class="category-title">
+                    <%= componentsPerCategory.category %>
+                  </div>
+                  <div class="components-card-container">
                     <% componentsPerCategory.components.forEach(component=> { %>
-                      <%= component.name %>
+                      <%- include("./partials/component-card", {component: component}) %>
                         <% }) %>
-                          <% }) %>
-              </div>
-              <%- include("./partials/thats-all-for-now") %>
-                <% } %>
-                  <% } %>
+                  </div>
+                  <% }) %>
+                    <%- include("./partials/thats-all-for-now") %>
+                      <% } %>
+                        <% } %>
+                </div>
       </div>
     </div>
 </body>

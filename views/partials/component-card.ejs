@@ -1,0 +1,18 @@
+<div class="component-card">
+  <a class="title-section" href="/components/<%= component.id %>">
+    <div class="name">
+      <%= component.name %>
+    </div>
+    <div class="quantity">
+      <%= component.quantity%>x
+    </div>
+  </a>
+  <div class="price-section">
+    <a class="price" href="/components/<%= component.id %>">
+      Rs. <%= Math.round(component.price) %>
+    </a>
+    <a href="/components/<%= component.id %>/edit">
+      <img src="/edit-button-black.svg" alt="Edit Category">
+    </a>
+  </div>
+</div>
