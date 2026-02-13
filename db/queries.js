@@ -69,6 +69,14 @@ async function deleteComponent({ id }) {
 }
 
 
+async function searchComponent({ searchKeyword }) {
+  const { rows } = await pool.query(
+    "SELECT * FROM components where name ILIKE '%' || $1 || '%' ORDER BY name ASC",
+    [searchKeyword]
+  )
+  return rows
+}
+
 module.exports = {
   getAllCategories,
   addCategory,
@@ -80,5 +88,6 @@ module.exports = {
   getAllComponents,
   getComponentsCategoryWise,
   updateComponent,
-  deleteComponent
+  deleteComponent,
+  searchComponent
 }
