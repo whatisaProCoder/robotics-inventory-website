@@ -12,6 +12,7 @@ const validateCategory = [
     .isLength({ max: "50" }).withMessage("Category name must be below 50 characters.")
 ]
 
+
 // controller functions
 
 exports.categoriesPageGet = async (req, res) => {
