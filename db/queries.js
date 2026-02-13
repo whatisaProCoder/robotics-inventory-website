@@ -59,19 +59,19 @@ async function getAllComponents() {
 
 async function updateComponent({ id, name, description, quantity, category_id }) {
   await pool.query(
-    "UPDATE components SET name = $1, description = $2, quantity = $3, category_id = $4 where id = $5",
+    "UPDATE components SET name = $1, description = $2, quantity = $3, category_id = $4 WHERE id = $5",
     [name, description, quantity, category_id, id]
   )
 }
 
 async function deleteComponent({ id }) {
-  await pool.query("DELETE FROM components where id = $1", [id])
+  await pool.query("DELETE FROM components WHERE id = $1", [id])
 }
 
 
 async function searchComponent({ searchKeyword }) {
   const { rows } = await pool.query(
-    "SELECT * FROM components where name ILIKE '%' || $1 || '%' ORDER BY name ASC",
+    "SELECT * FROM components WHERE name ILIKE '%' || $1 || '%' ORDER BY name ASC",
     [searchKeyword]
   )
   return rows
