@@ -327,7 +327,7 @@ ul {
   padding-top: 2.25rem;
 }
 
-.categories-section>.top-row {
+.top-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -549,4 +549,26 @@ button {
 .deletion-form-section .errors-container {
   margin-top: 0;
   margin-bottom: 0.5rem;
+}
+
+.components-section {
+  display: flex;
+  flex-direction: column;
+  width: 1200px;
+  padding: 1.5rem;
+  padding-top: 2.25rem;
+}
+
+@media screen and (max-width:600px) {
+  .components-section .section-title {
+    display: none;
+  }
+}
+
+
+.top-row-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
