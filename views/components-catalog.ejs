@@ -15,13 +15,16 @@
         <div class="top-row">
           <div class="section-title">Components Collection</div>
           <div class="top-row-right">
-            <div class="field-container" style="background-color: unset;">
-              <input type="text" name="searchQuery" placeholder="Search">
-              <div class="icon-button" style="padding-left: 0.5rem !important; padding-right: 0.5rem !important;">
-                <img src="/search-icon-white.svg" alt="Search">
+            <form action="/components" method="GET">
+              <div class="field-container" style="background-color: unset;">
+                <input type="text" name="search" placeholder="Search">
+                <button type="submit" class="icon-button"
+                  style="padding-left: 0.5rem !important; padding-right: 0.5rem !important;">
+                  <img src="/search-icon-white.svg" alt="Search">
+                </button>
               </div>
-            </div>
-            <%- include("./partials/buttons/add-item", {link : "/categories/new" }) %>
+            </form>
+            <%- include("./partials/buttons/add-item", {link : "/components/new" }) %>
           </div>
         </div>
 
