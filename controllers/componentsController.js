@@ -75,9 +75,6 @@ exports.editComponentGet = async (req, res) => {
   const categories = await db.getAllCategories()
   const component = await db.getComponent({ id: componentID })
 
-  console.log(component)
-
-
   res.render("edit-component",
     {
       categories: categories,

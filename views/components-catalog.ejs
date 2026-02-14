@@ -34,7 +34,7 @@
             <% } else { %>
 
               <% componentsCategoryWise.forEach((componentsPerCategory)=> { %>
-                <div class="category-container">
+                <div class="category-container" id="category-id-<%= componentsPerCategory.category_id %>">
                   <div class="category-title">
                     <%= componentsPerCategory.category %>
                   </div>
