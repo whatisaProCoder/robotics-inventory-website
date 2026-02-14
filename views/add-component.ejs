@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Component</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <%- include("./partials/header", {active:"categories"}) %>
+    <div class="content-container">
+      <div class="form-container">
+        <div class="title">
+          Add New Component
+        </div>
+        <% if (locals.errors) {%>
+          <%- include("./partials/errors", {errors:errors}) %>
+            <% } %>
+              <form action="/components/new" method="POST" class="component-form">
+                <div class="field-container">
+                  <select name="category">
+                    <option value="" selected disabled hidden>Select Category</option>
+                    <% categories.forEach((categoryObj)=> { %>
+                      <option value="<%= categoryObj.id %>">
+                        <%= categoryObj.category %>
+                      </option>
+                      <% }) %>
+                  </select>
+                </div>
+                <div class="field-container">
+                  <input type=" text" name="componentName" placeholder="Name">
+                </div>
+                <div class="field-container">
+                  <textarea name="description" placeholder="Description"></textarea>
+                </div>
+                <div class="flex-row">
+                  <label for="price">Price (Rs.)</label>
+                  <div class="field-container">
+                    <input type="number" step="0.01" name="price" min="0" value="0.00">
+                  </div>
+                </div>
+                <div class="flex-row">
+                  <label for="quantity">Quantity</label>
+                  <div class="field-container">
+                    <input type="number" min="1" max="30" name="quantity" value="1">
+                  </div>
+                </div>
+                <div class="button-group">
+                  <button type="reset" class="reset-button">Reset</button>
+                  <button type="submit" class="submit-button">Submit</button>
+                </div>
+              </form>
+              <div class="go-back-button-container">
+                <%- include("./partials/buttons/go-back", {link:"/components"}) %>
+              </div>
+      </div>
+    </div>
+</body>
+
+</html>

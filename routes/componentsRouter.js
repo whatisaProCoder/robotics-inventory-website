@@ -17,8 +17,13 @@ const componentsRouter = Router()
 
 componentsRouter.get("/", componentsController.componentsCatalogPageGet)
 
+componentsRouter.get("/new", componentsController.addNewComponentGet)
+componentsRouter.post("/new", componentsController.addNewComponentPost)
+
 componentsRouter.get("/:id", componentsController.componentPageGet)
 
+componentsRouter.get("/:id/edit", componentsController.editComponentGet)
+componentsRouter.post("/:id/edit", componentsController.editComponentPost)
 
 // default exporting the router
 

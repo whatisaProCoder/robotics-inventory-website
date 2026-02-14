@@ -435,7 +435,8 @@ ul {
 }
 
 .form-container {
-  margin-top: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -476,8 +477,17 @@ form {
   background-color: #A5A5A5;
 }
 
-input {
+select {
   all: unset;
+}
+
+textarea {
+  height: 6rem;
+}
+
+input,
+select,
+textarea {
   background-color: #EBEBEB;
   color: black;
   font-size: 1.125rem;
@@ -491,7 +501,13 @@ button {
   all: unset;
 }
 
-.form-container>form>.button-group {
+label {
+  font-size: 1.125rem;
+  font-weight: 500;
+  width: 7rem;
+}
+
+.button-group {
   display: flex;
   flex-direction: row;
   gap: 0.75rem;
@@ -662,4 +678,65 @@ button {
 
 .component-card:hover img {
   scale: 1.1;
+}
+
+.component-details-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 1200px;
+  padding: 1.5rem;
+  padding-top: 2.25rem;
+  gap: 1.125rem;
+}
+
+.component-details-section .component-name {
+  margin-top: 1rem;
+  font-size: 1.375rem;
+  font-weight: bold;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.category-chip {
+  background-color: #303030;
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.25rem 0.375rem;
+}
+
+.quantity-chip {
+  background-color: #D4D4D4;
+  font-weight: 600;
+  font-size: 1.125rem;
+  padding: 0.25rem 0.375rem;
+}
+
+.component-description {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.component-price {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.component-details-section .button-group {
+  border-bottom: 3px solid #000000;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.component-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }

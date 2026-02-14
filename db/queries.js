@@ -22,17 +22,17 @@ async function deleteCategory({ id }) {
   await pool.query("DELETE FROM categories where id = $1", [id])
 }
 
-async function addComponent({ name, description, quantity, category_id }) {
+async function addComponent({ name, description, quantity, price, category_id }) {
   const { rows } = await pool.query(
-    "INSERT INTO components (name, description, quantity, category_id) VALUES ($1, $2, $3, $4)",
-    [name, description, quantity, category_id]
+    "INSERT INTO components (name, description, price, quantity, category_id) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+    [name, description, price, quantity, category_id]
   )
   return rows[0]
 }
 
 async function getComponent({ id }) {
   const { rows } = await pool.query(
-    "SELECT co.id, co.name, co.description, co.quantity, ca.id as category_id, ca.category FROM components co join categories ca on co.category_id = ca.id where co.id = $1",
+    "SELECT co.id, co.name, co.description, co.price, co.quantity, ca.id as category_id, ca.category FROM components co join categories ca on co.category_id = ca.id where co.id = $1",
     [id]
   )
   return rows[0]
@@ -57,10 +57,10 @@ async function getAllComponents() {
   )
 }
 
-async function updateComponent({ id, name, description, quantity, category_id }) {
+async function updateComponent({ id, name, description, price, quantity, category_id }) {
   await pool.query(
-    "UPDATE components SET name = $1, description = $2, quantity = $3, category_id = $4 WHERE id = $5",
-    [name, description, quantity, category_id, id]
+    "UPDATE components SET name = $1, description = $2, price = $3, quantity = $4, category_id = $5 WHERE id = $6",
+    [name, description, price, quantity, category_id, id]
   )
 }
 

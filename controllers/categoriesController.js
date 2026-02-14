@@ -9,7 +9,7 @@ const { body, validationResult, matchedData } = require("express-validator")
 const validateCategory = [
   body("categoryName").trim()
     .notEmpty().withMessage("Category name cannot be empty.")
-    .isLength({ max: "50" }).withMessage("Category name must be below 50 characters.")
+    .isLength({ max: 50 }).withMessage("Category name must be below 50 characters.")
 ]
 
 
