@@ -108,3 +108,11 @@ exports.editComponentPost = [
     res.redirect(`/components/${componentID}`)
   }
 ]
+
+exports.searchComponentsGet = async (req, res) => {
+  const query = req.query.query
+
+  const searchResults = await db.searchComponent({ searchKeyword: query })
+
+  res.render("search", { componentsCategoryWise: searchResults, query: query })
+}

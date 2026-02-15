@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Robotics Inventory - Components</title>
+  <title>Robotics Inventory - Search</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -13,7 +13,15 @@
     <div class="content-container">
       <div class="components-section">
         <div class="top-row">
-          <div class="section-title">Components Catalog</div>
+          <div class="flex-row" style="gap:1rem;">
+            <a href="/components" class="icon-button" style="padding: 0.75rem;">
+              <img src="/simple-left-arrow-white.svg" alt="Back" style="width:0.5rem;">
+            </a>
+            <div class="section-title">
+              Search Results
+            </div>
+          </div>
+
           <div class="top-row-right">
             <form action="/components/search" method="GET">
               <div class="field-container" style="background-color: unset;">
@@ -24,13 +32,13 @@
                 </button>
               </div>
             </form>
-            <%- include("./partials/buttons/add-item", {link : "/components/new" }) %>
           </div>
         </div>
 
         <% if(locals.componentsCategoryWise) { %>
           <% if(componentsCategoryWise.length===0) { %>
-            <div class="empty-alert">No components available yet. Add a new category!</div>
+            <div class="empty-alert">No search results for : <%= query %>
+            </div>
             <% } else { %>
 
               <% componentsCategoryWise.forEach((componentsPerCategory)=> { %>
@@ -38,7 +46,7 @@
                   <div class="category-title">
                     <%= componentsPerCategory.category %>
                   </div>
-                  <div class="components-card-container">
+                  <div class="cards-flex-wrap-container" style="margin-top: 1.5rem; justify-content: flex-start;">
                     <% componentsPerCategory.components.forEach(component=> { %>
                       <%- include("./partials/component-card", {component: component}) %>
                         <% }) %>

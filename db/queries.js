@@ -70,11 +70,29 @@ async function deleteComponent({ id }) {
 
 
 async function searchComponent({ searchKeyword }) {
+  if (!searchKeyword || searchKeyword.trim() === "") {
+    return []
+  }
+
+
+  const categories = getAllCategories()
+
   const { rows } = await pool.query(
     "SELECT * FROM components WHERE name ILIKE '%' || $1 || '%' ORDER BY name ASC",
     [searchKeyword]
   )
-  return rows
+
+  if (rows.length === 0) {
+    return []
+  }
+
+  return (await categories).map(category => {
+    return {
+      category_id: category.id,
+      category: category.category,
+      components: rows.filter((component) => component.category_id === category.id)
+    }
+  }).filter(componentsPerCategory => componentsPerCategory.components.length !== 0)
 }
 
 module.exports = {

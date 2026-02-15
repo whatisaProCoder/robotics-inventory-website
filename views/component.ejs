@@ -19,9 +19,9 @@
             <%= component.name %>
           </div>
           <div class="flex-row">
-            <div class="category-chip">
+            <a class="category-chip" href="/components#category-id-<%= component.category_id %>">
               <%= component.category %>
-            </div>
+            </a>
             <div class="quantity-chip">
               <%= component.quantity %> unit<%= component.quantity>1?"s":"" %>
             </div>

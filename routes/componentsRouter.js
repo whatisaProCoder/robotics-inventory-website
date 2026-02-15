@@ -20,6 +20,8 @@ componentsRouter.get("/", componentsController.componentsCatalogPageGet)
 componentsRouter.get("/new", componentsController.addNewComponentGet)
 componentsRouter.post("/new", componentsController.addNewComponentPost)
 
+componentsRouter.get("/search", componentsController.searchComponentsGet)
+
 componentsRouter.get("/:id", componentsController.componentPageGet)
 
 componentsRouter.get("/:id/edit", componentsController.editComponentGet)
