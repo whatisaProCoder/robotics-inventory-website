@@ -747,6 +747,22 @@ label {
   font-weight: 500;
 }
 
+.incorrect-pass {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #c60000;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.incorrect-pass>img {
+  width: 2rem;
+}
+
 .component-price {
   font-weight: 800;
   font-size: 1.25rem;
@@ -788,7 +804,7 @@ dialog::backdrop {
 
 #delete-dialog-box .flex-row {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   align-items: center;
 }
 

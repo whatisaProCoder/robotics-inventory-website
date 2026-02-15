@@ -36,7 +36,13 @@ exports.componentsCatalogPageGet = async (req, res) => {
 exports.componentPageGet = async (req, res) => {
   const id = req.params.id
 
+  const incorrect_pass = req.query.incorrect_pass
+
   const component = await db.getComponent({ id })
+
+  if (incorrect_pass && incorrect_pass === "yes") {
+    return res.render("component", { component: component, incorrect_pass: true })
+  }
 
   res.render("component", { component: component })
 }
@@ -123,8 +129,8 @@ exports.deleteComponentPost = async (req, res) => {
 
   if (passcode === process.env.PASSCODE) {
     await db.deleteComponent({ id })
-    return res.redirect("/components")
+    return res.redirect("/components?incorrect_pass=yes")
   } else {
-    return res.status(400).redirect(`/components/${id}`)
+    return res.status(400).redirect(`/components/${id}?incorrect_pass=yes `)
   }
 }

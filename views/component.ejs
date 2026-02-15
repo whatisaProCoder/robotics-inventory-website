@@ -32,10 +32,17 @@
           <div class="component-price">
             Rs. <%= component.price %>
           </div>
-          <div class="button-group">
-            <%- include("./partials/buttons/edit", {id:component.id}) %>
-              <button class="reset-button" id="deleteButton">Remove</button>
-          </div>
+          <% if(locals.incorrect_pass) { %>
+            <% if(incorrect_pass) { %>
+              <div class="incorrect-pass">
+                <img src="/invalid-icon.svg" alt="Invalid">
+                Incorrect passcode, try again!
+              </div>
+              <% }} %>
+                <div class="button-group">
+                  <%- include("./partials/buttons/edit", {id:component.id}) %>
+                    <button class="reset-button" id="deleteButton">Remove</button>
+                </div>
       </div>
     </div>
     <dialog id="delete-dialog-box">
@@ -54,7 +61,7 @@
               <form action="/components/<%= component.id %>/delete" method="POST" class="deletion-form">
                 <div class="button-group">
                   <div class="field-container">
-                    <input type="password" name="passcode" placeholder="Deletion Passcode" style="flex: 1;">
+                    <input type="password" name="passcode" placeholder="Enter passcode" style="flex: 1;" required>
                   </div>
                   <button type="submit" class="icon-button">
                     <img src="/delete-icon-white.svg" alt="Delete">
