@@ -77,7 +77,7 @@ async function searchComponent({ searchKeyword }) {
   const categories = await getAllCategories()
 
   const { rows } = await pool.query(
-    "SELECT * FROM components WHERE name ILIKE '%' || $1 || '%' ORDER BY name ASC",
+    "SELECT * FROM components co join categories ca ON co.category_id = ca.id WHERE co.name ILIKE '%' || $1 || '%' OR ca.category ILIKE '%' || $1 || '%' ORDER BY name ASC",
     [searchKeyword]
   )
 
