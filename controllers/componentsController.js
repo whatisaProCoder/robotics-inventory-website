@@ -131,6 +131,6 @@ exports.deleteComponentPost = async (req, res) => {
     await db.deleteComponent({ id })
     return res.redirect("/components?incorrect_pass=yes")
   } else {
-    return res.status(400).redirect(`/components/${id}?incorrect_pass=yes `)
+    return res.status(400).redirect(`/components/${id}?incorrect_pass=yes`)
   }
 }
