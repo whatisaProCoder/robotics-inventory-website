@@ -803,6 +803,12 @@ dialog::backdrop {
   padding: 1.5rem;
 }
 
+@media screen and (max-width:600px) {
+  #delete-dialog-box .form-container {
+    width: 100%;
+  }
+}
+
 #delete-dialog-box .flex-row {
   width: 100%;
   margin-bottom: 0.5rem;
