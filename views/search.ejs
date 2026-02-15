@@ -25,7 +25,7 @@
           <div class="top-row-right">
             <form action="/components/search" method="GET">
               <div class="field-container" style="background-color: unset;">
-                <input type="text" name="query" placeholder="Search" required>
+                <input type="text" name="query" placeholder="Search" value="<%= query %>" required>
                 <button type="submit" class="icon-button"
                   style="padding-left: 0.5rem !important; padding-right: 0.5rem !important;">
                   <img src="/search-icon-white.svg" alt="Search">
@@ -37,7 +37,8 @@
 
         <% if(locals.componentsCategoryWise) { %>
           <% if(componentsCategoryWise.length===0) { %>
-            <div class="empty-alert">No search results for : <%= query %>
+            <div class="empty-alert">
+              No search results for : <%= query %>
             </div>
             <% } else { %>
 
@@ -52,9 +53,8 @@
                         <% }) %>
                   </div>
                   <% }) %>
-                    <%- include("./partials/thats-all-for-now") %>
+                    <% } %>
                       <% } %>
-                        <% } %>
                 </div>
       </div>
     </div>
