@@ -482,7 +482,8 @@ form {
   background-color: #A5A5A5;
 }
 
-select {
+select,
+input {
   all: unset;
 }
 
