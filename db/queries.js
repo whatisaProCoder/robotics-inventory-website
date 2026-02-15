@@ -74,8 +74,7 @@ async function searchComponent({ searchKeyword }) {
     return []
   }
 
-
-  const categories = getAllCategories()
+  const categories = await getAllCategories()
 
   const { rows } = await pool.query(
     "SELECT * FROM components WHERE name ILIKE '%' || $1 || '%' ORDER BY name ASC",
@@ -86,13 +85,20 @@ async function searchComponent({ searchKeyword }) {
     return []
   }
 
-  return (await categories).map(category => {
-    return {
-      category_id: category.id,
-      category: category.category,
-      components: rows.filter((component) => component.category_id === category.id)
+  const componentsPerCategory = []
+
+  for (const category of categories) {
+    const componentsInThisCategory = rows.filter((component) => component.category_id === category.id)
+    if (componentsInThisCategory.length !== 0) {
+      componentsPerCategory.push({
+        category_id: category.id,
+        category: category.category,
+        components: componentsInThisCategory
+      })
     }
-  }).filter(componentsPerCategory => componentsPerCategory.components.length !== 0)
+  }
+
+  return componentsPerCategory
 }
 
 module.exports = {
