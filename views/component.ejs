@@ -34,10 +34,48 @@
           </div>
           <div class="button-group">
             <%- include("./partials/buttons/edit", {id:component.id}) %>
-              <%- include("./partials/buttons/delete", {id:component.id}) %>
+              <button class="reset-button" id="deleteButton">Remove</button>
           </div>
       </div>
     </div>
+    <dialog id="delete-dialog-box">
+      <div class="form-container">
+        <div class="flex-row">
+          <div class="title">
+            Remove component
+          </div>
+          <button id="close-dialog-box">
+            <img src="/close-icon.svg" alt="Close">
+          </button>
+        </div>
+        <% if (locals.errors) {%>
+          <%- include("./partials/errors", {errors:errors}) %>
+            <% } %>
+              <form action="/components/<%= component.id %>/delete" method="POST" class="deletion-form">
+                <div class="button-group">
+                  <div class="field-container">
+                    <input type="password" name="passcode" placeholder="Deletion Passcode" style="flex: 1;">
+                  </div>
+                  <button type="submit" class="icon-button">
+                    <img src="/delete-icon-white.svg" alt="Delete">
+                  </button>
+                </div>
+              </form>
+      </div>
+    </dialog>
+    <script>
+      const deleteButton = document.querySelector("#deleteButton")
+      const deleteDialogBox = document.querySelector("#delete-dialog-box")
+      const closeButton = document.querySelector("#close-dialog-box")
+
+      deleteButton.addEventListener("click", () => {
+        deleteDialogBox.showModal()
+      })
+
+      closeButton.addEventListener("click", () => {
+        deleteDialogBox.close()
+      })
+    </script>
 </body>
 
 </html>

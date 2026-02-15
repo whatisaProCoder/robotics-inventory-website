@@ -27,6 +27,8 @@ componentsRouter.get("/:id", componentsController.componentPageGet)
 componentsRouter.get("/:id/edit", componentsController.editComponentGet)
 componentsRouter.post("/:id/edit", componentsController.editComponentPost)
 
+componentsRouter.post("/:id/delete", componentsController.deleteComponentPost)
+
 // default exporting the router
 
 module.exports = componentsRouter

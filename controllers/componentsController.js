@@ -116,3 +116,15 @@ exports.searchComponentsGet = async (req, res) => {
 
   res.render("search", { componentsCategoryWise: searchResults, query: query })
 }
+
+exports.deleteComponentPost = async (req, res) => {
+  const id = req.params.id
+  const passcode = req.body.passcode
+
+  if (passcode === process.env.PASSCODE) {
+    await db.deleteComponent({ id })
+    return res.redirect("/components")
+  } else {
+    return res.status(400).redirect(`/components/${id}`)
+  }
+}
