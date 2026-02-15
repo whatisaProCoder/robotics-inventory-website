@@ -24,6 +24,14 @@ const validateComponent = [
     .notEmpty().withMessage("Quantity cannot be empty.")
 ]
 
+const validateComment = [
+  body("username")
+    .notEmpty().withMessage("Must enter username.")
+    .isLength({ min: 2, max: 25 }).withMessage("Username must have 2 to 25 characters."),
+  body("body")
+    .notEmpty().withMessage("Empty comment field.")
+    .isLength({ min: 5, max: 100 }).withMessage("Comment must have 5 to 100 characters.")
+]
 
 // controller functions
 
@@ -40,11 +48,13 @@ exports.componentPageGet = async (req, res) => {
 
   const component = await db.getComponent({ id })
 
+  const comments = await db.getCommentsForComponent({ componentID: id })
+
   if (incorrect_pass && incorrect_pass === "yes") {
-    return res.render("component", { component: component, incorrect_pass: true })
+    return res.render("component", { component: component, incorrect_pass: true, comments: comments })
   }
 
-  res.render("component", { component: component })
+  res.render("component", { component: component, comments: comments })
 }
 
 exports.addNewComponentGet = async (req, res) => {
@@ -134,3 +144,30 @@ exports.deleteComponentPost = async (req, res) => {
     return res.status(400).redirect(`/components/${id}?incorrect_pass=yes`)
   }
 }
+
+exports.addNewCommentPost = [
+  validateComment,
+  async (req, res) => {
+    const componentID = req.params.id
+
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      const component = await db.getComponent({ id: componentID })
+      const comments = await db.getCommentsForComponent({ componentID })
+      return res.status(400).render(
+        "component",
+        {
+          component: component,
+          comments: comments,
+          errors: errors.array()
+        }
+      )
+    }
+
+    const { username, body } = matchedData(req)
+
+    await db.addComment({ componentID, username, body })
+
+    res.redirect(`/components/${componentID}`)
+  }
+]

@@ -101,6 +101,15 @@ async function searchComponent({ searchKeyword }) {
   return componentsPerCategory
 }
 
+async function addComment({ componentID, username, body }) {
+  await pool.query("INSERT INTO comments (username, body, component_id) VALUES ($1, $2, $3)", [username, body, componentID])
+}
+
+async function getCommentsForComponent({ componentID }) {
+  const { rows } = await pool.query("SELECT * from comments WHERE component_id = $1", [componentID])
+  return rows;
+}
+
 module.exports = {
   getAllCategories,
   addCategory,
@@ -113,5 +122,7 @@ module.exports = {
   getComponentsCategoryWise,
   updateComponent,
   deleteComponent,
-  searchComponent
+  searchComponent,
+  addComment,
+  getCommentsForComponent
 }

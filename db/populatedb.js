@@ -17,6 +17,13 @@ CREATE TABLE IF NOT EXISTS components (
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS comments (
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  username VARCHAR(25) NOT NULL,
+  body VARCHAR(100) NOT NULL,
+  component_id INTEGER REFERENCES components(id) ON DELETE CASCADE
+);
+
 -- =========================
 -- Categories (8 Total)
 -- =========================

@@ -29,6 +29,8 @@ componentsRouter.post("/:id/edit", componentsController.editComponentPost)
 
 componentsRouter.post("/:id/delete", componentsController.deleteComponentPost)
 
+componentsRouter.post("/:id/comment", componentsController.addNewCommentPost)
+
 // default exporting the router
 
 module.exports = componentsRouter

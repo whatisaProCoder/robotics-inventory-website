@@ -37,7 +37,7 @@ app.use("/components", componentsRouter)
 // error handling
 
 app.get("/{*splat}", (req, res) => {
-  res.status(404).send("Page not found!")
+  res.status(404).render("404")
 })
 
 app.use((err, req, res, next) => {

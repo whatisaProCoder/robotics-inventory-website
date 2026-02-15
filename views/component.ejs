@@ -43,7 +43,50 @@
                   <%- include("./partials/buttons/edit", {id:component.id}) %>
                     <button class="reset-button" id="deleteButton">Remove</button>
                 </div>
+                <div class="comments-section">
+                  <div class="title-section">
+                    <img src="/comments-icon.svg" alt="Comments">
+                    <div class="title">Comments</div>
+                  </div>
+                  <% if(locals.errors) { %>
+                    <%- include("./partials/errors", {errors:errors}) %>
+                      <% } %>
+                        <form action="/components/<%= component.id %>/comment" method="POST" class="comment-form">
+                          <div class="field-row">
+                            <input type="text" placeholder="Username" name="username" class="username" required>
+                            <input type="text" placeholder="Write something..." name="body" class="comment" required>
+                          </div>
+                          <div class="button-group">
+                            <button type="reset" class="reset-button">Cancel</button>
+                            <button type="submit" class="submit-button">Comment</button>
+                          </div>
+                        </form>
+                        <div class="comments-container">
+                          <% if(locals.comments) { %>
+                            <% if(comments.length!==0) { %>
+                              <% comments.forEach(comment=> { %>
+                                <div class="comment">
+                                  <div class="user-icon">
+                                    <img src="/user-icon-white.svg" alt="User">
+                                  </div>
+                                  <div class="info-section">
+                                    <div class="username">
+                                      <%= comment.username %>
+                                    </div>
+                                    <div class="body">
+                                      <%= comment.body %>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <% }) %>
+                                  <%- include("./partials/thats-all-for-now") %>
+                                    <% } %>
+                                      <% } %>
+                        </div>
+                </div>
       </div>
+    </div>
     </div>
     <dialog id="delete-dialog-box">
       <div class="form-container">
@@ -55,19 +98,16 @@
             <img src="/close-icon.svg" alt="Close">
           </button>
         </div>
-        <% if (locals.errors) {%>
-          <%- include("./partials/errors", {errors:errors}) %>
-            <% } %>
-              <form action="/components/<%= component.id %>/delete" method="POST" class="deletion-form">
-                <div class="button-group">
-                  <div class="field-container">
-                    <input type="password" name="passcode" placeholder="Enter passcode" style="flex: 1;" required>
-                  </div>
-                  <button type="submit" class="icon-button">
-                    <img src="/delete-icon-white.svg" alt="Delete">
-                  </button>
-                </div>
-              </form>
+        <form action="/components/<%= component.id %>/delete" method="POST" class="deletion-form">
+          <div class="button-group">
+            <div class="field-container">
+              <input type="password" name="passcode" placeholder="Enter passcode" style="flex: 1;" required>
+            </div>
+            <button type="submit" class="icon-button">
+              <img src="/delete-icon-white.svg" alt="Delete">
+            </button>
+          </div>
+        </form>
       </div>
     </dialog>
     <script>
