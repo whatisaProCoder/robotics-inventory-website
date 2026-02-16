@@ -2,7 +2,7 @@
 
 ![Showcase](./public/showcase.png)
 
-A full-stack inventory management web application for robotics components, built as part of The Odin Project curriculum. This project showcases CRUD operations, PostgreSQL database integration, and server-side rendering with EJS.
+A full-stack inventory management web application for robotics components, built as part of The Odin Project curriculum. Demonstrating Node.js, Express, PostgreSQL, CRUD operations, and server-side rendering with EJS.
 
 ## Overview
 
