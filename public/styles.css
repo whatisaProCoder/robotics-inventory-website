@@ -947,10 +947,6 @@ dialog::backdrop {
   .comment {
     padding: 1rem;
   }
-
-  .comments-section input {
-    padding: 0.5rem 0.75rem;
-  }
 }
 
 .comment .username {
