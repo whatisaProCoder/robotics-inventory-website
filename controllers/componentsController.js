@@ -130,8 +130,6 @@ exports.searchComponentsGet = async (req, res) => {
 
   const searchResults = await db.searchComponent({ searchKeyword: query })
 
-  console.log(searchResults[0].components)
-
   res.render("search", { componentsCategoryWise: searchResults, query: query })
 }
 
