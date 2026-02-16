@@ -18,9 +18,9 @@ This application allows users to manage a catalog of robotics components organiz
 
 ## Usage
 
-- **Home Page**: Browse featured content and use search functionality
+- **Home Page**: Landing page showcasing features and technical overview.
 - **Categories**: View all categories, add new ones, or edit/delete existing categories
-- **Components**: Browse the full catalog, add new components, or manage existing ones
+- **Components Catalog**: Browse the full catalog, add new components, or manage existing ones, including search functionality.
 - **Component Details**: View individual component information, leave comments
 - **Search**: Find components by name or category using the search bar
 
@@ -167,7 +167,3 @@ The design is intentionally simple and retro, focusing on functionality and clea
 ## License
 
 See [LICENSE](LICENSE) file for details.
-
----
-
-**Project Context**: The Odin Project - Inventory Application Assignment
