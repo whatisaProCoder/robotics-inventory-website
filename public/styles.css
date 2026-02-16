@@ -881,7 +881,7 @@ dialog::backdrop {
 
 .comments-section input {
   border: 0;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid #404040;
   background-color: unset;
   padding: 0.5rem 1.5rem;
   font-weight: 500;
@@ -921,7 +921,7 @@ dialog::backdrop {
   flex-direction: row;
   align-items: flex-start;
   padding: 1rem 1.5rem;
-  border-bottom: 3px solid #000000;
+  border-bottom: 3px solid #404040;
 }
 
 .comment .user-icon {
@@ -946,6 +946,10 @@ dialog::backdrop {
 @media screen and (max-width:600px) {
   .comment {
     padding: 1rem;
+  }
+
+  .comments-section input {
+    padding: 0.5rem 0.75rem;
   }
 }
 
