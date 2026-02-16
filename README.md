@@ -167,7 +167,3 @@ The design is intentionally simple and retro, focusing on functionality and clea
 ## License
 
 See [LICENSE](LICENSE) file for details.
-
----
-
-**Project Context**: The Odin Project - Inventory Application Assignment
