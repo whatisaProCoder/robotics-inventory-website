@@ -35,19 +35,22 @@
             <% } else { %>
 
               <% componentsCategoryWise.forEach((componentsPerCategory)=> { %>
+
                 <div class="category-container" id="category-id-<%= componentsPerCategory.category_id %>">
-                  <div class="category-title">
-                    <%= componentsPerCategory.category %>
-                  </div>
-                  <div class="components-card-container">
-                    <% componentsPerCategory.components.forEach(component=> { %>
-                      <%- include("./partials/component-card", {component: component}) %>
-                        <% }) %>
-                  </div>
-                  <% }) %>
-                    <%- include("./partials/thats-all-for-now") %>
-                      <% } %>
-                        <% } %>
+                  <% if (componentsPerCategory.components.length!==0) { %>
+                    <div class="category-title">
+                      <%= componentsPerCategory.category %>
+                    </div>
+                    <% } %>
+                      <div class="components-card-container">
+                        <% componentsPerCategory.components.forEach(component=> { %>
+                          <%- include("./partials/component-card", {component: component}) %>
+                            <% }) %>
+                      </div>
+                      <% }) %>
+                        <%- include("./partials/thats-all-for-now") %>
+                          <% } %>
+                            <% } %>
                 </div>
       </div>
     </div>
